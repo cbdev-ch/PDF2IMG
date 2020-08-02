@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>CBDEV • 📄 to 🖼️ Converter</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+            * {
+                font-family: 'Nunito', sans-serif;
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;
+                color: gray;
+            }
+
+            /* clear default button style */
+            button{
+                all: unset;
+                cursor: pointer;
+            }
+
+            .vaorra-color {
+                color: #3ce5a4;
+            }
+
+            /* clear default input style */
+            input[type="file"] {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+
+            input + label {
+                font-size: 1.2rem;
+                font-weight: bold;
+                padding: 15px;
+                color: black;
+                background-color: #3ce5a4;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            #UploadButton{
+                margin: 15px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                padding: 15px;
+                color: black;
+                background-color: cornflowerblue;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <h1>📄 to 🖼️ Converter</h1>
+        <a href="https://cbdev.ch" target="_blank"><h3>made by CBDEV.ch</h3></a>
+        <form id="UploadForm">
+            <input type="file" id="UploadInput">
+            <label for="UploadInput">Choose a file</label>
+            <span id="FileName"></span>
+            <button type="button" onclick="removeInput()">❌</button><br>
+            <button type="submit" id="UploadButton">upload</button>
+        </form>
+
+
+
+        <script>
+
+            function removeInput() {
+                document.getElementById('FileName').innerHTML = '';
+                document.getElementById('UploadInput').value = '';
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+
+                document.getElementById('UploadButton').style.display = 'none';
+
+                document.getElementById('UploadForm').addEventListener('submit', event => {
+                    event.preventDefault();
+
+
+                });
+
+
+                document.getElementById('UploadInput').addEventListener('change', event => {
+
+
+                    if(event.target.files.length > 0){
+                        document.getElementById('FileName').innerHTML = event.target.files[0].name;
+                        document.getElementById('UploadButton').style.display = 'inline';
+                    }
+
+                });
+
+            });
+
+        </script>
+    </body>
+
+
+</html>
