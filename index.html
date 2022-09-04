@@ -64,7 +64,7 @@
 
     <body>
         <h1>📄 to 🖼️ Converter</h1>
-        <a href="https://cbdev.ch" target="_blank"><h3>made by CBDEV.ch</h3></a>
+        <a href="https://github.com/cbdev-ch" target="_blank"><h3>made by CBDEV.ch</h3></a>
         <form id="UploadForm">
             <input type="file" id="UploadInput">
             <label for="UploadInput">Choose a file</label>
@@ -80,6 +80,7 @@
             function removeInput() {
                 document.getElementById('FileName').innerHTML = '';
                 document.getElementById('UploadInput').value = '';
+                document.getElementById('UploadButton').style.display = 'none';
             }
 
             document.addEventListener('DOMContentLoaded', () => {
